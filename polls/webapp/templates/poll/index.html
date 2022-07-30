@@ -8,7 +8,7 @@
     <div class="container">
         <div class="list-group">
             {% for poll in polls %}
-                <div class="alert alert-success">
+                <div class="alert bg-info bg-opacity-50">
                     <p class="list-group-item-action">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1"><a href="{% url 'poll_detail' poll.pk %}">{{ poll.question }}</a></h5>

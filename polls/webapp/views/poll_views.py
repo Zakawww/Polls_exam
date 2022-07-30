@@ -33,8 +33,10 @@ class PollUpdateView(UpdateView):
     class_form = PollForm
     template_name = 'poll/update_poll.html'
     context_object_name = 'poll'
-    success_url = '/'
     fields = ['question']
+
+    def get_success_url(self):
+        return reverse('index')
 
 
 class PollDeleteView(DeleteView):
