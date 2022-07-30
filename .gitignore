@@ -8,6 +8,17 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+*.sqlite3
+venv
+virtualenv
+__pycache__
+*.pyc
+.idea
+.vscode
+*.log
+uploads
+.DS_Store
+settings_local.py
 build/
 develop-eggs/
 dist/
