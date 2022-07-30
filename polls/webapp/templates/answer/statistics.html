@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Статистика
+{% endblock %}
+
+{% block body %}
+    <p class="alert alert-success">{{ poll }}
+        <small class="float-right">Всего ответов: <span class="text-primary float-right ml-1">{{ answers|length }}</span></small>
+    </p>
+    <div class="list-group">
+        {% for count_answer in count_answers.items %}
+            <p class="list-group-item"><small>Ответ:</small> {{ count_answer.0 }}
+                <span
+                    class="text-danger float-right">{{ count_answer.1.0 }} <small class="text-primary">({{ count_answer.1.1 }})%</small>
+                </span>
+            </p>
+        {% empty %}
+            <p>Этот опрос еще не проходили</p>
+            {% if poll.choices.all %}
+                <p><a href="{% url 'pass_the_poll' poll.pk %}" class="text-primary">Пройти опрос?</a></p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-primary mt-2">Вернуться на главную</a>
+{% endblock %}
